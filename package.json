@@ -1,0 +1,31 @@
+{
+  "name": "assignment-full-stack",
+  "version": "1.0.0",
+  "description": "Full-stack assignment application with React, TypeScript, Express, and MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "build:all": "cd server && npm run build && cd ../client && npm run build",
+    "dev": "./dev.sh start",
+    "start": "./dev.sh prod-start",
+    "stop": "./dev.sh stop",
+    "logs": "./dev.sh logs",
+    "status": "./dev.sh status",
+    "cleanup": "./dev.sh cleanup"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "express",
+    "mongodb",
+    "prisma",
+    "docker",
+    "full-stack"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
