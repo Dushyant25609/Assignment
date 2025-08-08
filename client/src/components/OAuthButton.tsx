@@ -1,40 +1,51 @@
 import { Button } from './ui/button';
-import { GoogleIcon } from './OAuthIcons';
+import { GoogleIcon, GitHubIcon, FacebookIcon, TwitterIcon } from './OAuthIcons';
+
+type Provider = 'google' | 'github' | 'facebook' | 'twitter';
+
+interface ProviderConfig {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  url: string;
+  color: string;
+}
 
 interface OAuthButtonProps {
-  provider: 'google' | 'github' | 'facebook' | 'twitter';
+  provider: Provider;
   children: React.ReactNode;
   disabled?: boolean;
   className?: string;
   mode?: 'login' | 'signup';
 }
 
-const providerConfig = {
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://assignment-0bxg.onrender.com/api'
+
+const providerConfig: Record<Provider, ProviderConfig> = {
   google: {
     icon: GoogleIcon,
-    url: 'http://localhost:5001/api/auth/google',
-    bgColor: 'bg-white hover:bg-gray-50 border border-gray-300',
-    textColor: 'text-gray-700'
+    label: 'Google',
+    url: `${API_BASE_URL}/auth/google`,
+    color: 'bg-red-500 hover:bg-red-600'
   },
   github: {
-    icon: GoogleIcon, // Use Google icon for now, you can add GitHub icon later
-    url: 'http://localhost:5001/api/auth/github',
-    bgColor: 'bg-gray-800 hover:bg-gray-900',
-    textColor: 'text-white'
+    icon: GitHubIcon,
+    label: 'GitHub',
+    url: `${API_BASE_URL}/auth/github`,
+    color: 'bg-gray-800 hover:bg-gray-900'
   },
   facebook: {
-    icon: GoogleIcon, // Use Google icon for now
-    url: 'http://localhost:5001/api/auth/facebook',
-    bgColor: 'bg-blue-600 hover:bg-blue-700',
-    textColor: 'text-white'
+    icon: FacebookIcon,
+    label: 'Facebook',
+    url: `${API_BASE_URL}/auth/facebook`,
+    color: 'bg-blue-600 hover:bg-blue-700'
   },
   twitter: {
-    icon: GoogleIcon, // Use Google icon for now
-    url: 'http://localhost:5001/api/auth/twitter',
-    bgColor: 'bg-blue-400 hover:bg-blue-500',
-    textColor: 'text-white'
+    icon: TwitterIcon,
+    label: 'Twitter',
+    url: `${API_BASE_URL}/auth/twitter`,
+    color: 'bg-sky-500 hover:bg-sky-600'
   }
-};
+}
 
 export const OAuthButton = ({ 
   provider, 
@@ -61,7 +72,7 @@ export const OAuthButton = ({
       variant="outline"
       className={`
         w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-lg
-        ${config.bgColor} ${config.textColor}
+        ${config.color}
         transition-colors duration-200
         disabled:opacity-50 disabled:cursor-not-allowed
         ${className}

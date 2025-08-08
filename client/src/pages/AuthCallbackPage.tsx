@@ -4,6 +4,8 @@ import { useAuthStore } from '../store/authStore';
 import { LoadingSpinner } from '../components/ui/loading-spinner';
 import { toast } from 'react-hot-toast';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://assignment-0bxg.onrender.com/api';
+
 export const AuthCallbackPage = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -26,7 +28,7 @@ export const AuthCallbackPage = () => {
       if (token) {
         try {
           // Fetch user data with the token
-          const response = await fetch('http://localhost:5001/api/auth/me', {
+          const response = await fetch(`${API_BASE_URL}/auth/me`, {
             headers: {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json',
