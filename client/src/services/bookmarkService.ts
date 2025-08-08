@@ -1,6 +1,6 @@
 import { Bookmark, CreateBookmarkRequest, UpdateBookmarkRequest, BookmarkResponse } from '@/types/bookmark'
 
-const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:5001/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://assignment-0bxg.onrender.com/api'
 
 class BookmarkServiceClass {
   private getAuthHeaders(): HeadersInit {
