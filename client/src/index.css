@@ -39,6 +39,125 @@
   h6 {
     @apply text-base;
   }
+
+  /* Custom scrollbar styles */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+
+  /* Firefox scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(209 213 219) rgb(243 244 246);
+  }
+
+  .dark .scrollbar-thin {
+    scrollbar-color: rgb(75 85 99) rgb(31 41 55);
+  }
+
+  /* Text wrapping utilities */
+  .overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* Blue scrollbar for AI summary */
+  .scrollbar-thumb-blue-300::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thumb-blue-300::-webkit-scrollbar-track {
+    background: rgb(219 234 254);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-blue-300::-webkit-scrollbar-thumb {
+    background: rgb(147 197 253);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-blue-300::-webkit-scrollbar-thumb:hover {
+    background: rgb(96 165 250);
+  }
+
+  .dark .scrollbar-thumb-blue-300::-webkit-scrollbar-track {
+    background: rgb(30 58 138);
+  }
+
+  .dark .scrollbar-thumb-blue-300::-webkit-scrollbar-thumb {
+    background: rgb(59 130 246);
+  }
+
+  .dark .scrollbar-thumb-blue-300::-webkit-scrollbar-thumb:hover {
+    background: rgb(37 99 235);
+  }
+
+  /* Theme-aware scrollbars */
+  .scrollbar-thumb-muted-foreground\/30::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thumb-muted-foreground\/30::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.2);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-muted-foreground\/30::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-muted-foreground\/30::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  .dark .scrollbar-thumb-muted-foreground\/30::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  .dark .scrollbar-thumb-muted-foreground\/30::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.7);
+  }
+
+  /* Primary theme scrollbars */
+  .scrollbar-thumb-primary\/30::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thumb-primary\/30::-webkit-scrollbar-track {
+    background: hsl(var(--primary) / 0.1);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-primary\/30::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-primary\/30::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+
+  .dark .scrollbar-thumb-primary\/30::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+  }
+
+  .dark .scrollbar-thumb-primary\/30::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.7);
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -98,6 +217,7 @@
   .line-clamp-1 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -105,6 +225,7 @@
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -112,8 +233,34 @@
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .flip-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card.flipping {
+    transform: rotateY(10deg) scale(0.98);
+    opacity: 0.7;
+  }
+
+  .form-slide-in {
+    animation: slideInUp 0.3s ease-out;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

@@ -19,8 +19,9 @@
     "express",
     "mongodb",
     "prisma",
-    "docker",
-    "full-stack"
+    "full-stack",
+    "bookmarks",
+    "ai-summaries"
   ],
   "author": "Your Name",
   "license": "MIT",
